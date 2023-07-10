@@ -18,3 +18,8 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
+      - run: echo ${python -c "import sys; print(sys.version)"} > ver.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: version
+          path: artifact/python38
